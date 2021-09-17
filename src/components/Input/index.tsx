@@ -1,19 +1,12 @@
-import {
-  useEffect,
-  useRef,
-  useState,
-  useCallback,
-  InputHTMLAttributes,
-} from 'react';
-
-import { useField } from '@unform/core';
-
-import { Container } from './styles';
-import { IconBaseProps } from 'react-icons';
+import { useField } from "@unform/core";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { IconBaseProps } from "react-icons";
+import { Container } from "./styles";
 
 interface InputProps {
   name: string;
   icon?: React.ComponentType<IconBaseProps>;
+  placeholder?: string;
 }
 
 const Input: React.FC<InputProps> = ({ name, icon: Icon, ...rest }) => {
@@ -38,7 +31,7 @@ const Input: React.FC<InputProps> = ({ name, icon: Icon, ...rest }) => {
     registerField({
       name: fieldName,
       ref: inputRef.current,
-      path: 'value',
+      path: "value",
     });
   }, [fieldName, registerField]);
 
